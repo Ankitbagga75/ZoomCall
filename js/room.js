@@ -13,7 +13,7 @@ memberButton.addEventListener('click', () => {
   if (activeMemberContainer) {
     memberContainer.style.display = 'none';
   } else {
-    memberContainer.style.display = 'block';
+    memberContainer.style.display = 'blockc';
   }
 
   activeMemberContainer = !activeMemberContainer;
