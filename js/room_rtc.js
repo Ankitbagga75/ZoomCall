@@ -34,7 +34,7 @@ let joinRoomInit = async()=>{
 let joinStream = async()=>{
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()
     
-    let player = `<div class="video__container id="user-container-${uid}">
+    let player = `<div class="video__container" id="user-container-${uid}">
                      <div class ="video-player" id="user-${uid}"></div>
                   </div>`
 
@@ -49,7 +49,7 @@ let handleUserPublished = async(user, mediaType)=>{
     await client.subscribe(user,mediaType)
     let player = document.getElementById(`user-container-${user.uid}`)
     if (player === null){
-     player = `<div class="video__container id="user-container-${user.uid}">
+     player = `<div class="video__container" id="user-container-${user.uid}">
                      <div class ="video-player" id="user-${user.uid}"></div>
                   </div>`
                   
