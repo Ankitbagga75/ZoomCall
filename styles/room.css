@@ -174,13 +174,13 @@
   height: 100%;
 }
 
-#stream_box{
+#stream__box{
   background-color: #3f434a;
   height: 60vh;
   display: none;
 }
 
-#streams_container{
+#streams__container{
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
@@ -190,7 +190,7 @@
   margin-bottom: 225px;
 }
 
-.video_container{
+.video__container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,12 +207,12 @@
   width: 100%;
 }
 
-.video_player video{
+.video-player video{
   border-radius: 50%;
 }
 
 @media (max-width: 1400px) {
-  .video_container{
+  .video__container{
   height: 200px;
   width: 300px;
 }
@@ -251,9 +251,10 @@
   #stream__container {
     width: 100%;
   }
-  .video_container{
+  .video__container{
     height: 100px;
     width: 100px;
+  }
   
   #messages__container {
     display: none;
