@@ -39,6 +39,7 @@ let joinStream = async()=>{
                   </div>`
 
     document.getElementById('streams__container').insertAdjacentHTML('beforeend',player)
+    document.getElementById(`user-container-${uid}`).addEventListener('click',expandVideoFrame)
     localTracks[1].play(`user-${uid}`)
     await client.publish([localTracks[1]])
 }
@@ -54,6 +55,13 @@ let handleUserPublished = async(user, mediaType)=>{
                   </div>`
                   
         document.getElementById('streams__container').insertAdjacentHTML('beforeend',player)
+        document.getElementById(`user-container-${uid}`).addEventListener('click',expandVideoFrame)
+    }
+
+    if (displayFrame.style.display){
+        player.style.height = '100%'
+        player.style.width = '100%'
+
     }
     if (mediaType === 'video'){
         user.videoTrack.play(`user-${user.uid}`)
