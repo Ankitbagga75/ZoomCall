@@ -54,3 +54,16 @@ let expandVideoFrame = (e) => {
 for(let i = 0; videoFrames.length>i; i++){
   videoFrames[i].addEventListener('click', expandVideoFrame)
 }
+
+let hideDisplayFrame =() =>{
+  userIdInDisplayFrame  = null; 
+  displayFrame.style.display = null ; 
+  let child = displayFrame.children[0]
+  document.getElementById('streams__container').appendChild(child)
+  for(let i = 0; videoFrames.length>i; i++){
+    videoFrames[i].style.height = '100px'
+    videoFrames[i].style.width = '100px'
+  }
+}
+
+displayFrame.addEventListener('click',hideDisplayFrame);
