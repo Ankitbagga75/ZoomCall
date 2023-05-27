@@ -33,7 +33,11 @@ let sharingScreen = false;
 
 let joinRoomInit = async()=>{
     rtmClient = await AgoraRTM.createInstance(APP_ID)
+    await rtmClient.login({uid,token})
 
+    channel = await rtmClient.createChannel(roomId)
+    channel.join()
+    channel.on('MemberJoined',handleMemberJoined)
     client =  AgoraRTC.createClient({mode:'rtc',codec:'vp8'})
     await client.join(APP_ID,roomId,token,uid)
     client.on('user-published',handleUserPublished)
