@@ -1,4 +1,4 @@
-const APP_ID = ""
+const APP_ID = "88259f29840643ad8f4f4bbc29abd87a"
 
 let uid = sessionStorage.getItem('uid')
 if (!uid){
@@ -34,10 +34,13 @@ let sharingScreen = false;
 let joinRoomInit = async()=>{
     rtmClient = await AgoraRTM.createInstance(APP_ID)
     await rtmClient.login({uid,token})
-
+    await rtmClient.addOrUpdateLocalUserAttributes({'name':displayName})
     channel = await rtmClient.createChannel(roomId)
-    channel.join()
+    await channel.join()
     channel.on('MemberJoined',handleMemberJoined)
+    channel.on('MemberLeft',handleMemberLeft)
+    channel.on('channelMessage',handleChannelMessage)
+    getMembers()
     client =  AgoraRTC.createClient({mode:'rtc',codec:'vp8'})
     await client.join(APP_ID,roomId,token,uid)
     client.on('user-published',handleUserPublished)
